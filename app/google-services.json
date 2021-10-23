@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715354911700",
+    "project_id": "milkanalyzer-8e4c8",
+    "storage_bucket": "milkanalyzer-8e4c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715354911700:android:c5ebfe3ae8357abbf89c41",
+        "android_client_info": {
+          "package_name": "com.example.milkanalyzer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715354911700-sv6vnpu7qr967v6cf5hatm3ap9chtgjv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE9Wvz3n24Ss4UKJpt0XPlAtSZ208GMQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715354911700-sv6vnpu7qr967v6cf5hatm3ap9chtgjv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
