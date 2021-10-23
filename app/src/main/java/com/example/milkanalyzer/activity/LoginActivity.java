@@ -11,10 +11,21 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.milkanalyzer.R;
 import com.example.milkanalyzer.databinding.ActivityLoginBinding;
+import com.example.milkanalyzer.object.Login;
+import com.example.milkanalyzer.object.Milk;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,17 +52,27 @@ public class LoginActivity extends AppCompatActivity {
                     PERMISSIONS,
                     PERMISSION_REQUEST_CODE);
         }
-
         mBinding.login.setOnClickListener(view -> {
-            String username = mBinding.username.getEditText().getText().toString();
-            String password = mBinding.password.getEditText().getText().toString();
-            if (username.equals("admin") && password.equals("1234")){
-                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
-                myIntent.putExtra("username", username); //Optional parameters
-                LoginActivity.this.startActivity(myIntent);
-            } else {
-                Toast.makeText(LoginActivity.this, "Kullanıcı Adı veya Parola yanlış tekrar deneyin.", Toast.LENGTH_LONG).show();
-            }
+            FirebaseLoginHelper firebaseMilkHelper = new FirebaseLoginHelper();
+            firebaseMilkHelper.databaseReference.child(mBinding.username.getEditText().getText().toString()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    Login user = dataSnapshot.getValue(Login.class);
+                    if (mBinding.username.getEditText().getText().toString().equals(user.getUsername()) && mBinding.password.getEditText().getText().toString().equals(user.getPassword())){
+                        Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        myIntent.putExtra("username", user.getUsername()); //Optional parameters
+                        LoginActivity.this.startActivity(myIntent);
+                    } else
+                        Toast.makeText(LoginActivity.this, "Kullanıcı Adı veya Parola yanlış tekrar deneyin.", Toast.LENGTH_LONG).show();
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    Log.w("TAG", "Failed to read value.", error.toException());
+                }
+            });
         });
     }
 
@@ -77,6 +98,30 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 break;
         }
+    }
+
+    class FirebaseLoginHelper {
+
+        private DatabaseReference databaseReference;
+
+
+        public FirebaseLoginHelper(){
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            databaseReference = db.getReference(Login.class.getSimpleName());
+        }
+
+        public Task<Void> addLogin(String key, Login login){
+            return databaseReference.child(key).setValue(login);
+        }
+
+        public Task<Void> updateUser(String key, Map<String,Object> taskMap){
+            return databaseReference.child(key).updateChildren(taskMap);
+        }
+
+        public Task<Void> removeUser(String key){
+            return databaseReference.child(key).removeValue();
+        }
+
     }
 
 }

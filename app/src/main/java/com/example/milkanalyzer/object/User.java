@@ -1,13 +1,12 @@
 package com.example.milkanalyzer.object;
 
-import java.util.Date;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "book")
-public class user {
+public class User {
 
     @PrimaryKey()
     private String id;

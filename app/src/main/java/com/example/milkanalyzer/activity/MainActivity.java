@@ -40,9 +40,10 @@ import com.dantsu.escposprinter.exceptions.EscPosConnectionException;
 import com.dantsu.escposprinter.exceptions.EscPosEncodingException;
 import com.dantsu.escposprinter.exceptions.EscPosParserException;
 import com.dantsu.escposprinter.textparser.PrinterTextParserImg;
+import com.example.milkanalyzer.FireBaseHelper;
 import com.example.milkanalyzer.R;
 import com.example.milkanalyzer.databinding.ActivityMainBinding;
-import com.example.milkanalyzer.object.user;
+import com.example.milkanalyzer.object.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public static BluetoothSocket mmSocket;
     public static ConnectedThread connectedThread;
     public static CreateConnectThread createConnectThread;
-    private List<user> userList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
     private ActivityMainBinding mBinding;
 
     private final static int CONNECTING_STATUS = 1;
@@ -152,10 +153,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mBinding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, NewUserActivity.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
+
         mBinding.print.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EscPosPrinter printer = null;
+                /*EscPosPrinter printer = null;
                 try {
                     printer = new EscPosPrinter(new UsbConnection(mUsbManager, mUsbDevice), 203, 48f, 32);
                 } catch (EscPosConnectionException e) {
@@ -173,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (EscPosBarcodeException e) {
                     e.printStackTrace();
-                }
+                }*/
             }
         });
         printUsb();
@@ -239,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
         private final OutputStream mmOutStream;
 
         private ActivityMainBinding mActivityMainBinding;
-        private List<user> userList = new ArrayList<>();
+        private List<User> userList = new ArrayList<>();
 
         public ConnectedThread(BluetoothSocket socket, ActivityMainBinding activityMainBinding) {
             mmSocket = socket;
