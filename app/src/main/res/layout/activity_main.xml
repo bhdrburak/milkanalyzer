@@ -1,272 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 
-<layout xmlns:tools="http://schemas.android.com/tools">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:orientation="vertical"
+        tools:context="com.example.milkanalyzer.activity.MainActivity">
 
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:subtitleTextColor="@android:color/background_light"
-            app:title="Bluetooth Connection"
-            app:titleTextColor="@android:color/background_light" />
+            android:theme="@style/Theme.MilkAnalyzer.PopupOverlay">
 
-        <Button
-            android:id="@+id/buttonConnect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bağlan"
-            android:textColor="@android:color/background_light"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_alignParentEnd="true"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/Theme.MilkAnalyzer.PopupOverlay" />
 
+        </com.google.android.material.appbar.AppBarLayout>
 
-
-        <ImageView
-            android:id="@id/image_view_photo"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/profile"
-            android:layout_below="@id/buttonConnect"
-            />
-
-        <LinearLayout
-            android:id="@+id/layout_id"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintStart_toEndOf="@+id/image_view_photo"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                tools:ignore="MissingConstraints">
-                <TextView
-                    android:layout_width="0dp"
-                    android:textAlignment="textEnd"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="ID :"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:id="@+id/textViewId"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="3"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/layout_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                tools:ignore="MissingConstraints"
-                android:layout_below="@+id/layout_id">
-                <TextView
-                    android:layout_width="0dp"
-                    android:textAlignment="textEnd"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Ad Soyad :"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:id="@+id/textViewName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="3"/>
-            </LinearLayout>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/layout_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                tools:ignore="MissingConstraints"
-                android:layout_below="@+id/layout_username">
-                <TextView
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewBluetooth"
                     android:layout_width="0dp"
-                    android:textAlignment="textEnd"
-                    android:layout_height="wrap_content"
-                    android:text="Adres :"
-                    android:textStyle="bold"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:id="@+id/textViewAddress"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="3"/>
-            </LinearLayout>
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1">
 
-            <LinearLayout
-                android:id="@+id/layout_totalmilk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                tools:ignore="MissingConstraints"
-                android:layout_below="@+id/layout_address">
-                <TextView
-                    android:layout_width="0dp"
-                    android:textAlignment="textEnd"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Toplam Süt :"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:id="@+id/textViewTotalMilk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="3"/>
-            </LinearLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/bluetoothCon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/common_google_signin_btn_text_light_disabled">
 
-            <LinearLayout
-                android:id="@+id/layout_havemilk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                tools:ignore="MissingConstraints"
-                android:layout_below="@+id/layout_totalmilk">
-                <TextView
-                    android:layout_width="0dp"
-                    android:textAlignment="textEnd"
-                    android:layout_height="wrap_content"
-                    android:text="Alınan Süt :"
-                    android:textStyle="bold"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:id="@+id/textViewHaveMilk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="3"/>
-            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/imageBl"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="4dp"
+                            android:src="@drawable/devices_offline"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/layout_lasthavemilk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                tools:ignore="MissingConstraints"
-                android:layout_below="@+id/layout_havemilk">
-                <TextView
+
+                        <TextView
+                            android:id="@+id/bluetoothConnectionText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:text="Printer Bağlantısı Sağlanamadı"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toEndOf="@+id/imageBl"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/bluetoothDeviceName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toEndOf="@+id/imageBl"
+                            app:layout_constraintTop_toBottomOf="@+id/bluetoothConnectionText" />
+
+                        <TextView
+                            android:id="@+id/bluetoothDeviceAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toEndOf="@+id/imageBl"
+                            app:layout_constraintTop_toBottomOf="@+id/bluetoothDeviceName" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewPrinter"
                     android:layout_width="0dp"
-                    android:textAlignment="textEnd"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text="Son Alınan Süt :"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:id="@+id/textViewLastHaveMilk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="3"/>
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/printerCon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/common_google_signin_btn_text_light_disabled">
+
+                        <ImageView
+                            android:id="@+id/imagePrinter"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="4dp"
+                            android:src="@drawable/printer_offline"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/printerConnectionText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="Printer Bağlantısı Sağlanamadı"
+                            app:layout_constraintStart_toEndOf="@+id/imagePrinter"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/printerReconnect"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:text="Tekrar Denemek için dokunun."
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imagePrinter"
+                            app:layout_constraintTop_toBottomOf="@+id/printerConnectionText" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layout_milkdate"
-                android:layout_width="match_parent"
+
+            <com.melnykov.fab.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                tools:ignore="MissingConstraints"
-                android:layout_below="@+id/layout_lasthavemilk">
-                <TextView
-                    android:layout_width="0dp"
-                    android:textAlignment="textEnd"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text="Tarih :"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:id="@+id/textViewDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_weight="3"/>
-            </LinearLayout>
-        </LinearLayout>
+                android:layout_gravity="bottom|right"
+                android:layout_margin="16dp"
+                android:src="@drawable/plus"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
 
-
-        <TextView
-            android:id="@+id/textViewInfo"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:textAlignment="center"
-            android:textStyle="italic"
-            android:textSize="40sp"
-            app:layout_constraintTop_toBottomOf="@+id/layout_id"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/print"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="Print"
-            android:layout_above="@+id/buttonToggle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <Button
-            android:id="@+id/buttonToggle"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="ÖLÇÜME BAŞLA"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/print"/>
-
-        <com.melnykov.fab.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:tint="@color/white"
-            android:src="@drawable/plus"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

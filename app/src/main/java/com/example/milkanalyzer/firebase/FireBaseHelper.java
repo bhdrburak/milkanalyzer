@@ -1,4 +1,4 @@
-package com.example.milkanalyzer;
+package com.example.milkanalyzer.firebase;
 
 import com.example.milkanalyzer.object.User;
 import com.google.android.gms.tasks.Task;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class FireBaseHelper {
 
-    private DatabaseReference databaseReference;
+    public DatabaseReference databaseReference;
 
 
     public FireBaseHelper(){

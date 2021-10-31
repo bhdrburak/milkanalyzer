@@ -26,6 +26,18 @@ public class User {
     private String mail;
     @ColumnInfo(name = "user_pic")
     private String userPicture;
+    @ColumnInfo(name = "village_name")
+    private String villageName;
+    @ColumnInfo(name = "village_no")
+    private String villageNo;
+    @ColumnInfo(name = "target_milk")
+    private String targetMilk;
+    @ColumnInfo(name = "last_taken_milk")
+    private String lastTakenMilk;
+    @ColumnInfo(name = "last_taken_date")
+    private String lastTakenDate;
+    @ColumnInfo(name = "taken_milk")
+    private String takenMilk;
 
     public String getId() {
         return id;
@@ -97,5 +109,53 @@ public class User {
 
     public void setUserPicture(String userPicture) {
         this.userPicture = userPicture;
+    }
+
+    public String getVillageName() {
+        return villageName;
+    }
+
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
+    }
+
+    public String getVillageNo() {
+        return villageNo;
+    }
+
+    public void setVillageNo(String villageNo) {
+        this.villageNo = villageNo;
+    }
+
+    public String getTargetMilk() {
+        return targetMilk;
+    }
+
+    public void setTargetMilk(String targetMilk) {
+        this.targetMilk = targetMilk;
+    }
+
+    public String getLastTakenMilk() {
+        return lastTakenMilk;
+    }
+
+    public void setLastTakenMilk(String lastTakenMilk) {
+        this.lastTakenMilk = lastTakenMilk;
+    }
+
+    public String getLastTakenDate() {
+        return lastTakenDate;
+    }
+
+    public void setLastTakenDate(String lastTakenDate) {
+        this.lastTakenDate = lastTakenDate;
+    }
+
+    public String getTakenMilk() {
+        return takenMilk;
+    }
+
+    public void setTakenMilk(String takenMilk) {
+        this.takenMilk = takenMilk;
     }
 }

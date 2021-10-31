@@ -1,4 +1,4 @@
-package com.example.milkanalyzer;
+package com.example.milkanalyzer.bluetooth;
 
 import android.content.Intent;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.milkanalyzer.object.DeviceInfoModel;
+import com.example.milkanalyzer.R;
 import com.example.milkanalyzer.activity.MainActivity;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +19,7 @@ import java.util.List;
 public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private List<Object> deviceList;
+    private List<DeviceInfoModel> deviceList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textName, textAddress;
@@ -31,7 +33,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public DeviceListAdapter(Context context, List<Object> deviceList) {
+    public DeviceListAdapter(Context context, List<DeviceInfoModel> deviceList) {
         this.context = context;
         this.deviceList = deviceList;
 

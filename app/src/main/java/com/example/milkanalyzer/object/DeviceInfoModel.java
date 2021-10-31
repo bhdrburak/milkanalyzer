@@ -1,4 +1,4 @@
-package com.example.milkanalyzer;
+package com.example.milkanalyzer.object;
 
 public class DeviceInfoModel {
 
