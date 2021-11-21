@@ -55,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
             mBinding.progressBar.setVisibility(View.VISIBLE);
             login();
         });
-        login();
     }
 
     private void login(){
@@ -80,6 +79,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private boolean checkPermissions() {
         for (String permission : PERMISSIONS) {

@@ -92,21 +92,178 @@
 
         </RelativeLayout>
 
-
-        <TextView
-            android:id="@+id/avarage"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/resultView"
+            app:layout_constraintTop_toBottomOf="@+id/cardview"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:textAlignment="center"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/buttonLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_margin="8dp">
+
+
+            <LinearLayout
+                android:id="@+id/layout_faterate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Yağ Oranı :"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/fateRate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/layout_waterrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/layout_faterate"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Su Oranı :"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/waterRate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout_laktozrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/layout_waterrate"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:text="Laktoz Oranı :"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/laktozRate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_proteinrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/layout_laktozrate"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Protein Oranı :"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/proteinRate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_snfrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/layout_proteinrate"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Snf Oranı :"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/snfRate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textSize="18sp"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout_saltrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/layout_snfrate"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:text="Tuz Oranı :"
+                    android:textAlignment="textStart"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/saltRate"
+                    android:layout_width="0dp"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
         <androidx.cardview.widget.CardView
@@ -133,9 +290,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="ID :"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
@@ -156,9 +312,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Ad Soyad :"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
@@ -171,28 +326,6 @@
                         android:textAlignment="textStart" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/layout_village"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Köy İsmi ve Numarası :"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewVillage"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textAlignment="textStart" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layout_address"
@@ -218,6 +351,29 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_village"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Köy İsmi ve Numarası :"
+                        android:textAlignment="textStart"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewVillage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:textAlignment="textStart" />
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:id="@+id/layout_totalmilk"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -225,10 +381,9 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Toplam Alınacak Süt :"
+                        android:text="Toplam Alınacak Süt Miktarı(Litre):"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
 
@@ -236,7 +391,7 @@
                         android:id="@+id/targetMilk"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_weight="2"
                         android:textAlignment="textStart" />
                 </LinearLayout>
 
@@ -248,10 +403,9 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Alınan Süt :"
+                        android:text="Alınan Süt Miktarı(Litre):"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
 
@@ -259,7 +413,7 @@
                         android:id="@+id/totalTakenMilk"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_weight="2"
                         android:textAlignment="textStart" />
                 </LinearLayout>
 
@@ -271,10 +425,9 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Son Alınan Süt :"
+                        android:text="Son Alınan Süt Miktarı(Litre) :"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
 
@@ -282,7 +435,7 @@
                         android:id="@+id/lastTakenMilk"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_weight="2"
                         android:textAlignment="textStart" />
                 </LinearLayout>
 
@@ -294,10 +447,9 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Tarih :"
+                        android:text="Son Süt Alınan Tarih :"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
 
@@ -305,7 +457,7 @@
                         android:id="@+id/textViewDate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_weight="2"
                         android:textAlignment="textStart" />
                 </LinearLayout>
 
@@ -317,10 +469,9 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Alınan Süt :"
+                        android:text="Alınan Süt Miktarı(Litre):"
                         android:textAlignment="textStart"
                         android:textStyle="bold" />
 
@@ -328,11 +479,13 @@
                         android:id="@+id/takenMilk"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_weight="2"
                         android:inputType="number"
                         android:textAlignment="textStart" />
                 </LinearLayout>
             </LinearLayout>
+
+
 
         </androidx.cardview.widget.CardView>
 

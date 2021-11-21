@@ -21,9 +21,11 @@ import java.util.Set;
 public class AppManager {
 
     public static User user;
+    public static String userId;
     public static ConnectedThread connectedThread;
     public static Handler handler;
     public static CreatePrinter createPrinter;
+    public static BroadcastReceiver usbReceiver;
 
     public static User getUser() {
         return user;
@@ -31,6 +33,14 @@ public class AppManager {
 
     public static void setUser(User user) {
         AppManager.user = user;
+    }
+
+    public static String getUserId() {
+        return userId;
+    }
+
+    public static void setUserId(String userId) {
+        AppManager.userId = userId;
     }
 
     public static ConnectedThread getConnectedThread() {
@@ -58,6 +68,7 @@ public class AppManager {
     }
 
     public static void initPrinter(Context context, BroadcastReceiver usbReceiver){
+        AppManager.usbReceiver = usbReceiver;
         createPrinter = new CreatePrinter(usbReceiver);
         createPrinter.printUsb(context);
     }

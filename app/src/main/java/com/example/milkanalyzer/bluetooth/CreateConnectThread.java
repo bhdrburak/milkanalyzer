@@ -6,7 +6,6 @@ import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
 import android.util.Log;
 
-
 import com.example.milkanalyzer.AppManager;
 
 import java.io.IOException;

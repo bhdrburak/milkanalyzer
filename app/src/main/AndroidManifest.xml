@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MilkAnalyzer">
         <activity
-            android:name=".activity.ResultActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".activity.NewUserActivity"
@@ -38,7 +38,7 @@
             android:exported="true"
             android:theme="@style/Theme.MilkAnalyzer.NoActionBar" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.ResultActivity"
             android:exported="true"
             android:theme="@style/Theme.MilkAnalyzer.NoActionBar">
             <intent-filter>

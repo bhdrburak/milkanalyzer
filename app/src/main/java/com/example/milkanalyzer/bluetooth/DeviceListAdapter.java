@@ -1,20 +1,20 @@
 package com.example.milkanalyzer.bluetooth;
 
-import android.content.Intent;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.milkanalyzer.object.DeviceInfoModel;
 import com.example.milkanalyzer.R;
 import com.example.milkanalyzer.activity.MainActivity;
-
-import androidx.recyclerview.widget.RecyclerView;
+import com.example.milkanalyzer.object.DeviceInfoModel;
 
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

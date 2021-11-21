@@ -57,37 +57,37 @@ public class NewUserActivity extends AppCompatActivity {
         });
     }
 
-    private void saveData(){
-        if (mBinding.name.getText().toString().trim().length() == 0){
+    private void saveData() {
+        if (mBinding.name.getText().toString().trim().length() == 0) {
             mBinding.name.requestFocus();
             return;
         }
-        if (mBinding.surname.getText().toString().trim().length() == 0){
+        if (mBinding.surname.getText().toString().trim().length() == 0) {
             mBinding.surname.requestFocus();
             return;
         }
-        if (mBinding.phone.getText().toString().trim().length() == 0){
+        if (mBinding.phone.getText().toString().trim().length() == 0) {
             mBinding.phone.requestFocus();
             return;
         }
 
-        if (mBinding.cardNo.getText().toString().trim().length() == 0){
+        if (mBinding.cardNo.getText().toString().trim().length() == 0) {
             mBinding.cardNo.requestFocus();
             return;
         }
-        if (mBinding.villageName.getText().toString().trim().length() == 0){
+        if (mBinding.villageName.getText().toString().trim().length() == 0) {
             mBinding.villageName.requestFocus();
             return;
         }
-        if (mBinding.villageNo.getText().toString().trim().length() == 0){
+        if (mBinding.villageNo.getText().toString().trim().length() == 0) {
             mBinding.villageNo.requestFocus();
             return;
         }
-        if (mBinding.target.getText().toString().trim().length() == 0){
+        if (mBinding.target.getText().toString().trim().length() == 0) {
             mBinding.target.requestFocus();
             return;
         }
-        if (mBinding.taken.getText().toString().trim().length() == 0){
+        if (mBinding.taken.getText().toString().trim().length() == 0) {
             mBinding.taken.requestFocus();
             return;
         }
@@ -104,20 +104,20 @@ public class NewUserActivity extends AppCompatActivity {
         user.setTargetMilk(mBinding.target.getText().toString());
         user.setTakenMilk(mBinding.taken.getText().toString());
         user.setLastTakenMilk("0");
-        String pattern = "MM.dd.yyyy HH:mm";
+        String pattern = "dd.MM.yyyy HH:mm";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         user.setLastTakenDate(simpleDateFormat.format(new Date()));
-        fireBaseHelper.addUser(user.getId(), user).addOnSuccessListener(suc ->{
+        fireBaseHelper.addUser(user.getId(), user).addOnSuccessListener(suc -> {
             Toast.makeText(NewUserActivity.this, "Kullanıcı Oluşturuldu.", Toast.LENGTH_LONG).show();
             onBackPressed();
-        }).addOnFailureListener(fail ->{
+        }).addOnFailureListener(fail -> {
             Toast.makeText(NewUserActivity.this, "Kullanıcı Oluşturulamadı.", Toast.LENGTH_LONG).show();
         });
     }
 
     public void getData(String[] strings) {
         if ("rfid".equals(strings[0])) {
-           mBinding.cardNo.setText(strings[1]);
+            mBinding.cardNo.setText(strings[1]);
         }
     }
 

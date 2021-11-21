@@ -14,4 +14,6 @@
     <color name="colorOff">#000000</color>
     <color name="colorOn">#FF8800</color>
     <color name="success">#99cc33</color>
+    <color name="red">#FF0000</color>
+
 </resources>

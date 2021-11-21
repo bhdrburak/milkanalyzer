@@ -1,17 +1,16 @@
 package com.example.milkanalyzer.object;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class TakenMilk {
 
+    @SerializedName("userId")
     private String userId;
+    @SerializedName("takenMilk")
     private String takenMilk;
+    @SerializedName("takenMilkDate")
     private String takenMilkDate;
-
-    public TakenMilk(String userId, String takenMilk, String takenMilkDate) {
-        this.userId = userId;
-        this.takenMilk = takenMilk;
-        this.takenMilkDate = takenMilkDate;
-    }
 
     public String getUserId() {
         return userId;
