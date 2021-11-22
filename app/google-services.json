@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "653343752191",
-    "firebase_url": "https://milkanalyzer-d2d51-default-rtdb.firebaseio.com",
-    "project_id": "milkanalyzer-d2d51",
-    "storage_bucket": "milkanalyzer-d2d51.appspot.com"
+    "project_number": "462017372819",
+    "project_id": "milkv2-387b0",
+    "storage_bucket": "milkv2-387b0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:653343752191:android:6fb0b3bdadf0cf827a31ca",
+        "mobilesdk_app_id": "1:462017372819:android:33eafb633e25040fd16366",
         "android_client_info": {
           "package_name": "com.example.milkanalyzer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "653343752191-r2a5fr9a1405l2v7itfcqhsj91v0rhul.apps.googleusercontent.com",
+          "client_id": "462017372819-1vup0qkoagvbcb36o2k6436d8fomkkqo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.milkanalyzer",
+            "certificate_hash": "f632c98a210062bb17d812a396d94947f05c43d0"
+          }
+        },
+        {
+          "client_id": "462017372819-f246eu0mmlqm019k4epg4n5v06vun5lo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAIcsKOLGZF4VzSPUETEbt9Ffhb4iJwAco"
+          "current_key": "AIzaSyCmsYq3VPhQAvacpkCMpagDEPgiEIVBHOc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "653343752191-r2a5fr9a1405l2v7itfcqhsj91v0rhul.apps.googleusercontent.com",
+              "client_id": "462017372819-f246eu0mmlqm019k4epg4n5v06vun5lo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

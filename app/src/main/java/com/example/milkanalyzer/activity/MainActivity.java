@@ -121,20 +121,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         };
 
         if (deviceName != null) {
+            try {
+                List<DeviceInfoModel> deviceList = AppManager.getBluetoothConnection(mActivityBinding.getRoot());
 
-            List<DeviceInfoModel> deviceList = AppManager.getBluetoothConnection(mActivityBinding.getRoot());
-
-            deviceAddress = "";
-            for (DeviceInfoModel infoModel : deviceList) {
-                if (infoModel.getDeviceName().equals(deviceName)) {
-                    deviceAddress = infoModel.getDeviceHardwareAddress();
-                    break;
+                deviceAddress = "";
+                for (DeviceInfoModel infoModel : deviceList) {
+                    if (infoModel.getDeviceName().equals(deviceName)) {
+                        deviceAddress = infoModel.getDeviceHardwareAddress();
+                        break;
+                    }
                 }
+                mBinding.toolbar.setSubtitle("Connecting to " + deviceName + "...");
+                BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                createConnectThread = new CreateConnectThread(bluetoothAdapter, deviceAddress, handler);
+                createConnectThread.start();
+            } catch (Exception e){
+
             }
-            mBinding.toolbar.setSubtitle("Connecting to " + deviceName + "...");
-            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-            createConnectThread = new CreateConnectThread(bluetoothAdapter, deviceAddress, handler);
-            createConnectThread.start();
+
+
         }
 
         mBinding.cardviewBluetooth.setOnClickListener(view -> {

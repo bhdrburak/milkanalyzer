@@ -116,7 +116,7 @@ public class ResultActivity extends AppCompatActivity {
             else
                 Toast.makeText(ResultActivity.this, "Ölçüm Yapılmamış.", Toast.LENGTH_LONG).show();
         });
-        /*AppManager.getConnectedThread().setHandler(new Handler(Looper.getMainLooper()) {
+        AppManager.getConnectedThread().setHandler(new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what) {
@@ -135,20 +135,20 @@ public class ResultActivity extends AppCompatActivity {
                         break;
                 }
             }
-        });*/
+        });
         getData();
     }
 
     private void getData() {
         FireBaseHelper fireBaseHelper = new FireBaseHelper();
-        fireBaseHelper.databaseReference.child("105311863").addValueEventListener(new ValueEventListener() {
+        fireBaseHelper.databaseReference.child(user.getId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 user = dataSnapshot.getValue(User.class);
                 initView();
 
-                String resultString = "data:{fateRate:\"4.1\", laktozRate:\"2.7\", waterRate:\"1.1\", snfRate:\"3.3\", proteinRate:\"6.6\", saltRate:\"5.1\", weight:\"8.0\"}";
-                getData(resultString);
+                /*String resultString = "data:{fateRate:\"4.1\", laktozRate:\"2.7\", waterRate:\"1.1\", snfRate:\"3.3\", proteinRate:\"6.6\", saltRate:\"5.1\", weight:\"8.0\"}";
+                getData(resultString);*/
             }
 
             @Override
