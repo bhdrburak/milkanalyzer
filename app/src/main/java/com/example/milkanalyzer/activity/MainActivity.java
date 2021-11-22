@@ -42,6 +42,7 @@ import com.example.milkanalyzer.object.TakenMilk;
 import com.example.milkanalyzer.object.User;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
+        FirebaseCrashlytics.getInstance().sendUnsentReports();
         com.example.milkanalyzer.databinding.ActivityMainBinding mActivityBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         Intent intentLogin = getIntent();
@@ -240,11 +243,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void getData(String[] strings) {
         if ("rfid".equals(strings[0])) {
-            mUserId = strings[1];
-            AppManager.setUserId(mUserId);
-            Intent myIntent = new Intent(MainActivity.this, ResultActivity.class);
-            myIntent.putExtra("userId", "");
-            MainActivity.this.startActivity(myIntent);
+            try {
+                mUserId = strings[1];
+                AppManager.setUserId(mUserId);
+                Intent myIntent = new Intent(MainActivity.this, ResultActivity.class);
+                myIntent.putExtra("userId", "");
+                MainActivity.this.startActivity(myIntent);
+            } catch (Exception e){
+
+            }
         } else if ("avarage".equals(strings[0])) {
             Intent myIntent = new Intent(MainActivity.this, ResultActivity.class);
             myIntent.putExtra("userId", mUserId);

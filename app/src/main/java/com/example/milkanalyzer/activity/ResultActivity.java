@@ -2,11 +2,11 @@ package com.example.milkanalyzer.activity;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,7 +36,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.zxing.WriterException;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -102,6 +101,8 @@ public class ResultActivity extends AppCompatActivity {
                         progresCount = progresCount + 1;
                         handler.postDelayed(this, 95);
                     } else {
+                        /*String resultString = "data:{fateRate:\"4.1\", laktozRate:\"2.7\", waterRate:\"1.1\", snfRate:\"3.3\", proteinRate:\"6.6\", saltRate:\"5.1\", weight:\"8.0\"}";
+                        getData(resultString);*/
                         handler.removeCallbacks(this);
                     }
                 }
@@ -131,7 +132,7 @@ public class ResultActivity extends AppCompatActivity {
 
                     case MESSAGE_READ:
                         String readMessage = msg.obj.toString(); // Read message from Arduino
-                        getData(readMessage);
+                        getSensorData(readMessage);
                         break;
                 }
             }
@@ -141,7 +142,7 @@ public class ResultActivity extends AppCompatActivity {
 
     private void getData() {
         FireBaseHelper fireBaseHelper = new FireBaseHelper();
-        fireBaseHelper.databaseReference.child(user.getId()).addValueEventListener(new ValueEventListener() {
+        fireBaseHelper.databaseReference.child(AppManager.getUserId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 user = dataSnapshot.getValue(User.class);
@@ -206,7 +207,7 @@ public class ResultActivity extends AppCompatActivity {
                         "[R]Kalan Borc :[R]" + takenMilk + "\n" +
                         "[R]Yağ :[R]" + fateRate + "\n" +
                         "[R]Su :[R]" + waterRate + "\n" +
-                        "[R]SNF :[R]" + snfRate + "\n" +
+                        "[R]Kuru Madde :[R]" + snfRate + "\n" +
                         "[R]Laktoz :[R]" + laktozRate + "\n" +
                         "[R]Protein :[R]" + proteinRate + "\n" +
                         "[R]Tuz :[R]" + saltRate + "\n" +
@@ -236,7 +237,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    public void getData(String strings) {
+    public void getSensorData(String strings) {
         if (strings.startsWith("data")) {
             isAnaliz = true;
             String resultString = strings.split("data:")[1];
@@ -250,7 +251,7 @@ public class ResultActivity extends AppCompatActivity {
             activityResultBinding.print.setImageDrawable(getDrawable(R.drawable.printer_online));
             activityResultBinding.buttonToggle.setText("Tekrar Ölçüm Yap");
             initString(valueModel);
-            if(Double.parseDouble(valueModel.getFateRate()) < 2.9){
+            if (Double.parseDouble(valueModel.getFateRate()) < 2.9) {
                 Toast.makeText(this, "Yağ Oranı Belirtilen Değerin Altında.", Toast.LENGTH_LONG).show();
                 activityResultBinding.fateRate.setTextColor(getResources().getColor(R.color.red));
             } else {
@@ -260,7 +261,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    private void initString(ValueModel valueModel){
+    private void initString(ValueModel valueModel) {
         activityResultBinding.fateRate.setText(valueModel.getFateRate());
         activityResultBinding.waterRate.setText(valueModel.getWaterRate());
         activityResultBinding.proteinRate.setText(valueModel.getProteinRate());
